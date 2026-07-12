@@ -1,4 +1,4 @@
-// Application State
+
 let listings = [
     { id: 1, name: "Hass Avocados", category: "Tree", price: "$5/pkg", desc: "Our tree went crazy. Got about 15 extra avocados sitting in crates.", distance: "2 blocks away" },
     { id: 2, name: "Fresh Rosemary", category: "Herbs", price: "Trade", desc: "Massive rosemary bush needs pruning. Happy to trade for tomatoes.", distance: "0.5 miles away" }
