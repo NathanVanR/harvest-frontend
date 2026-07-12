@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvest - 8-Bit Backyard Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>[ HARVEST ]</h1>
+        <!-- Retro Nav Controls -->
+        <nav class="nav-container">
+            <button class="pixel-btn nav-btn active" data-target="market-screen">View Board</button>
+            <button class="pixel-btn nav-btn" data-target="manage-screen">My Listings</button>
+        </nav>
+    </header>
+
+    <main class="main-container">
+
+        <!-- SCREEN 1: THE MARKET BOARD -->
+        <section id="market-screen" class="screen active">
+            <div class="pixel-box">
+                <h2 class="box-title">Active Board Listings</h2>
+                <div class="market-grid" id="marketBoard">
+                    <!-- Cards populate here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 2: MANAGE & ADD LISTINGS -->
+        <section id="manage-screen" class="screen">
+            <div class="management-layout">
+                <!-- Left: Form -->
+                <div class="pixel-box">
+                    <h2 class="box-title">Post New Surplus</h2>
+                    <form id="harvestForm">
+                        <div class="form-group">
+                            <label for="produceName">Item / Produce</label>
+                            <input type="text" id="produceName" placeholder="e.g., Meyer Lemons" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="produceCategory">Source Type</label>
+                            <select id="produceCategory">
+                                <option value="Tree">Tree</option>
+                                <option value="Bush">Bush</option>
+                                <option value="Ground">Ground</option>
+                                <option value="Herbs">Herbs</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="producePrice">Price / Exchange</label>
+                            <input type="text" id="producePrice" placeholder="e.g., $2/bag" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="produceDesc">Details</label>
+                            <textarea id="produceDesc" rows="3" placeholder="Picked this morning!" required></textarea>
+                        </div>
+                        <button type="submit" class="pixel-btn">Add Listing</button>
+                    </form>
+                </div>
+
+                <!-- Right: Inventory Management -->
+                <div class="pixel-box">
+                    <h2 class="box-title">Your Current Offers</h2>
+                    <div id="myListingsContainer" class="my-listings-list">
+                        <!-- User's own items show up here with a delete option -->
+                        <p class="empty-text">You haven't posted any items yet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

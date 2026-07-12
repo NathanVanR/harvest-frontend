@@ -1,0 +1,264 @@
+:root {
+    --bg-color: #181425;
+    --container-bg: #262b44;
+    --text-color: #f4f4f4;
+    --pixel-green: #38b764;
+    --pixel-red: #a23e48;
+    --pixel-orange: #ea5e5d;
+    --pixel-border: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    image-rendering: pixelated;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: var(--pixel-green);
+    font-size: 2rem;
+    text-shadow: 4px 4px 0px #000;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 0.7rem;
+    color: var(--pixel-orange);
+}
+
+.main-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .main-container {
+        grid-template-columns: 350px 1fr;
+    }
+}
+
+/* 8-Bit Retro Container Style */
+.pixel-box {
+    background-color: var(--container-bg);
+    border: 4px solid var(--pixel-border);
+    padding: 20px;
+    box-shadow: 
+        0 4px 0 0 var(--pixel-border),
+        4px 0 0 0 var(--pixel-border),
+        0 -4px 0 0 var(--pixel-border),
+        -4px 0 0 0 var(--pixel-border),
+        inset -4px -4px 0 0 rgba(0,0,0,0.4);
+    margin: 6px;
+}
+
+.box-title {
+    font-size: 0.9rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--pixel-orange);
+    text-transform: uppercase;
+    border-bottom: 4px dashed var(--pixel-border);
+    padding-bottom: 10px;
+}
+
+/* Form inputs styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 0.6rem;
+    margin-bottom: 8px;
+}
+
+input, select, textarea {
+    font-family: 'Press Start 2P', monospace;
+    width: 100%;
+    background-color: #121016;
+    border: 4px solid var(--pixel-border);
+    color: var(--text-color);
+    padding: 10px;
+    font-size: 0.7rem;
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--pixel-green);
+}
+
+/* Retro Button Base */
+.pixel-btn {
+    font-family: 'Press Start 2P', monospace;
+    width: 100%;
+    background-color: var(--pixel-green);
+    color: #fff;
+    border: 4px solid var(--pixel-border);
+    padding: 12px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    box-shadow: 
+        inset -4px -4px 0px 0px #1d6e39,
+        inset 4px 4px 0px 0px #70e497;
+    text-transform: uppercase;
+}
+
+.pixel-btn:active {
+    box-shadow: 
+        inset 4px 4px 0px 0px #1d6e39,
+        inset -4px -4px 0px 0px #70e497;
+    padding-top: 14px;
+    padding-bottom: 10px;
+}
+
+/* Claim Offer Variation Button */
+.btn-claim {
+    background-color: var(--pixel-orange);
+    box-shadow: 
+        inset -4px -4px 0px 0px #b13434, 
+        inset 4px 4px 0px 0px #f38e8e;
+}
+
+.btn-claim:active {
+    box-shadow: 
+        inset 4px 4px 0px 0px #b13434, 
+        inset -4px -4px 0px 0px #f38e8e;
+}
+
+/* Feed / Marketplace Layout */
+.market-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 600px) {
+    .market-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.item-card {
+    background-color: #2a314d;
+    transition: transform 0.1s ease;
+}
+
+.item-card:hover {
+    transform: scale(1.02);
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.item-price {
+    color: #f3c63f;
+}
+
+.item-meta {
+    font-size: 0.55rem;
+    color: #a5afc4;
+    margin-bottom: 10px;
+}
+
+.item-desc {
+    font-size: 0.6rem;
+    background-color: #1b1f32;
+    padding: 8px;
+    border: 2px solid var(--pixel-border);
+    margin-bottom: 15px;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.5rem;
+    padding: 4px 6px;
+    background-color: #4b547d;
+    border: 2px solid var(--pixel-border);
+}
+
+/* --- SCREEN ROUTING MECHANICS --- */
+.screen {
+    display: none; /* Hidden by default */
+}
+
+.screen.active {
+    display: block; /* Visible when active class added */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-btn {
+    padding: 8px 16px;
+    font-size: 0.65rem;
+    background-color: #4b547d;
+    box-shadow: inset -4px -4px 0px 0px #2a314d, inset 4px 4px 0px 0px #7681b3;
+}
+
+.nav-btn.active {
+    background-color: var(--pixel-green);
+    box-shadow: inset -4px -4px 0px 0px #1d6e39, inset 4px 4px 0px 0px #70e497;
+}
+
+/* Management Screen Split View */
+.management-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .management-layout {
+        grid-template-columns: 380px 1fr;
+    }
+}
+
+.my-listings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.empty-text {
+    font-size: 0.6rem;
+    color: #a5afc4;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Delete Button variant */
+.btn-delete {
+    background-color: var(--pixel-red);
+    box-shadow: inset -4px -4px 0px 0px #5e1f26, inset 4px 4px 0px 0px #df6b77;
+}
+.btn-delete:active {
+    box-shadow: inset 4px 4px 0px 0px #5e1f26, inset -4px -4px 0px 0px #df6b77;
+}
